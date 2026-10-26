@@ -1,4 +1,8 @@
-const API_ROOT = 'http://localhost:5000/api/events';
+const API_BASE_URL = (
+  import.meta.env.VITE_API_URL || 'http://localhost:5000'
+).replace(/\/+$/, '');
+
+const API_ROOT = `${API_BASE_URL}/api/events`;
 
 async function readResponse(response) {
   const body = await response.json().catch(() => ({}));
